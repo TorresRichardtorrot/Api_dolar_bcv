@@ -36,7 +36,7 @@ setInterval(getdataHTML,time);
 async function  actualizar(result){
 
    try {
-    await fetch(`http://localhost:7000/api/dollarBcv/${ruta}`,{
+    await fetch(`https://apidolarbcv.up.railway.app/api/dollarBcv/${ruta}`,{
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
