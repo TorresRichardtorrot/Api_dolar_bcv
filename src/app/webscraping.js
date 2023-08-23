@@ -2,7 +2,7 @@ import puppeteer from "puppeteer";
 import { config } from "dotenv";
 config()
 
-const time = 43200000;
+const time = 86400000;
 const ruta = process.env.RUTA;
 
 //www.bcv.org.ve/
