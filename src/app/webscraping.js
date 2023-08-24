@@ -38,11 +38,7 @@ setInterval(getdataHTML,60000);
 async function  actualizar(result){
 
    try {
-<<<<<<< HEAD
     await fetch(`https://dolar-bcv.onrender.com/api/dollarBcv/64e3c0e8d926c209317996b1`,{
-=======
-    await fetch(`https://dolar-bcv.onrender.com/api/dollarBcv/${ruta}`,{
->>>>>>> 16d745a8ede7e1bf2287ab50068996ddd27b0fdb
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
