@@ -5,13 +5,14 @@ config()
 const time = 86400000;
 const ruta = process.env.RUTA;
 
+
 //www.bcv.org.ve/
 //!extraer html del DOM de www.bcv.org.ve/
 async function getdataHTML() {
 
     const browser = await puppeteer.launch({
         headless: true,
-        timeout: 60000 
+        timeout: 600000 
     });
 
     const page = await browser.newPage();
@@ -29,14 +30,15 @@ async function getdataHTML() {
 
     
     await browser.close();
+    return result
 };
 
-setInterval(getdataHTML,time);
+setInterval(getdataHTML,60000);
 
 async function  actualizar(result){
 
    try {
-    await fetch(`https://dolar-bcv.onrender.com/api/dollarBcv${ruta}`,{
+    await fetch(`https://dolar-bcv.onrender.com/api/dollarBcv/64e3c0e8d926c209317996b1`,{
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
