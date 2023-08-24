@@ -14,7 +14,7 @@ async function getdataHTML() {
     try {
         const browser = await puppeteer.launch({
             headless: true,
-            timeout: 600000 
+            timeout: 900000,
         });
     
         const page = await browser.newPage();
