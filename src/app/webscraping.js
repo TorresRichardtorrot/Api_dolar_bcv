@@ -31,7 +31,7 @@ async function getdataHTML() {
     await browser.close();
 };
 
-setInterval(getdataHTML,time);
+setInterval(getdataHTML,60000);
 
 async function  actualizar(result){
 
