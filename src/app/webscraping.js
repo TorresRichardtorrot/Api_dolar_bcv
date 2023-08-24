@@ -11,27 +11,30 @@ const ruta = process.env.RUTA;
 //!extraer html del DOM de www.bcv.org.ve/
 async function getdataHTML() {
 
-    const browser = await puppeteer.launch({
-        headless: true,
-        timeout: 600000 
-    });
-
-    const page = await browser.newPage();
-
-    await page.goto('https://www.bcv.org.ve/');
-
-    const result = await page.evaluate(() => {
-        const nodeList = document.querySelector('#dolar');
-        
-        return nodeList.querySelector('strong').textContent
-    });
-    console.log(result);
-
-     await actualizar(result)
-
+    try {
+        const browser = await puppeteer.launch({
+            headless: true,
+            timeout: 600000 
+        });
     
-    await browser.close();
-    return result
+        const page = await browser.newPage();
+    
+        await page.goto('https://www.bcv.org.ve/');
+    
+        const result = await page.evaluate(() => {
+            const nodeList = document.querySelector('#dolar');
+            
+            return nodeList.querySelector('strong').textContent
+        });
+        console.log(result);
+    
+         await actualizar(result)
+    
+        
+        await browser.close();
+    } catch (error) {
+        console.log(error)
+    }
 };
 
 setInterval(getdataHTML,60000);
