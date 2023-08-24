@@ -34,10 +34,11 @@ async function getdataHTML() {
         await browser.close();
     } catch (error) {
         console.log(error)
+        getdataHTML()
     }
 };
 
-setInterval(getdataHTML,60000);
+setInterval(getdataHTML,time);
 
 async function  actualizar(result){
 
@@ -53,6 +54,7 @@ async function  actualizar(result){
     console.log('LISTO 👌')
    } catch (error) {
     console.log(error)
+    getdataHTML()
    }
 }
 
